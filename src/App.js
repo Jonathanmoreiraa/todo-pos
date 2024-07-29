@@ -1,23 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
 
 function App() {
+  const [value, setValue] = useState("");
+  const [elements, setElement] = useState([]);
+
+  const addToDo = () => {
+    elements.push(value);
+    setValue("");
+    console.log(elements)
+  } 
+
+  const apagar = (i) => {
+    setElement(elements.filter(function (element, index) {return index !== i}));
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='barra_pesquisa'>
+        <input type="text" placeholder="Digite um ToDo" className='pesquisa' onChange={(e) => setValue(e.target.value)}/>
+        <button className='button_pesquisa' onClick={() => addToDo()}>Adicionar</button>
+      </div>
+      <div className='conteudo'>
+        {
+          elements.length > 0 && (
+            <ul>
+              {
+                elements.map((element, i) => {
+                  return (
+                    <li>
+                      <p>{element} </p>
+                      <a onClick={() => apagar(i)}>Excluir</a>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          )
+        }
+      </div>
     </div>
   );
 }
