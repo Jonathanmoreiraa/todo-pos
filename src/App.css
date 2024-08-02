@@ -5,6 +5,17 @@
   flex-direction: column;
 }
 
+.barra_pesquisa{
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px;
+}
+
+.barra_pesquisa input{
+  max-width: 400px;
+  margin-right: 8px;
+}
+
 .pesquisa{
   padding: 8px;
   border: 2px solid #ccc;
@@ -13,31 +24,40 @@
   margin-right: 8px;
 }
 
-.button_pesquisa{
-  height: 33px;
-  border-radius: 25px;
-  width: 80px;
-  border: 2px solid #ccc;
-  background-color: white;
-  color: #a1a0a0;
-  cursor: pointer;
-  font-weight: 600;
-  text-align: start;
+.loading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-.button_pesquisa:hover{
+.conteudo{
   border: 2px solid #ccc;
-  background-color: #ccc;
-  transform: scale(1.05);
-  color: white;
-}
-
-.conteudo ul{
-  padding: 0 8px;
-  min-width: 310px;
+  height: 80vh;
+  padding: 8px;
+  min-width: 651px;
   margin-top: 16px;
-  border: 2px solid #ccc;
   border-radius: 15px;
+  overflow-y: scroll;
+}
+
+.conteudo::-webkit-scrollbar {
+  width: 8px;
+}
+
+.conteudo::-webkit-scrollbar-track {
+  background: #f1f1f14c;
+  border-radius: 10px;
+  margin: 16px;
+}
+
+.conteudo::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.conteudo::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor da barra de rolagem ao passar o mouse */
 }
 
 .conteudo li{
@@ -45,14 +65,35 @@
   display: flex;
   align-items: center;
   word-wrap: break-word;
+  margin: 4px;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.conteudo li:hover{
+  background-color: #f3f3f3;
+  cursor: pointer;
 }
 
 .conteudo li p{
-  width: 82%;
+  width: 89%;
+  padding-right: 8px;
+}
+
+.conteudo li label{
+  margin: 0 8px;
 }
 
 .conteudo li a{
   color: red;
   cursor: pointer;
   font-weight: 600;
+}
+
+.completed_true{
+  background-color: #48c78e40;
+}
+
+.completed_true p{
+  text-decoration: line-through;
 }
